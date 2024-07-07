@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('Connection established');
-
+    socket.broadcast.emit('Hello from broadcast?')
     socket.on('chat message', (msg) => {
         console.log('received message',msg);
         io.emit('chat message',msg)
